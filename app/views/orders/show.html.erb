@@ -1,7 +1,7 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order #<%= @order.id %> for <%= @order.email %></h1>
   </header>
 
   <div class="order-summary jumbotron">
@@ -17,10 +17,10 @@
         </tr>
       </thead>
       <tbody>
-    <% line_items = LineItem.where(order_id: @order.id) %>
-    <% line_items.each do |line_item| %>
-    <%= render 'order', product_id: line_item.product_id, quantity: line_item.quantity %>
-    <% end %>
+        <% line_items = LineItem.where(order_id: @order.id) %>
+        <% line_items.each do |line_item| %>
+        <%= render 'order', product_id: line_item.product_id, quantity: line_item.quantity %>
+        <% end %>
       </tbody>
       <tfoot>
         <tr>
