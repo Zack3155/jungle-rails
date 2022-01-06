@@ -1,5 +1,13 @@
 <section class="cart-show">
 
+  <% if cart.count == 0 %>
+    <div class="alert alert-info">
+      <strong>Your cart is empty!</strong>
+      <br>Please go back by clicking following link.</br>
+    </div>
+    <%= link_to 'Continue shopping', '/'%>
+    
+  <% else %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -49,4 +57,5 @@
     </div>
   </div>
 
+  <% end %>
 </section>
