@@ -3,9 +3,9 @@
   <% if cart.count == 0 %>
     <div class="alert alert-info">
       <strong>Your cart is empty!</strong>
-      <br>Please go back by clicking following link.</br>
+      <br>Please go back by clicking below button.</br>
     </div>
-    <%= link_to 'Continue shopping', '/'%>
+    <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
     
   <% else %>
   <header class="page-header">

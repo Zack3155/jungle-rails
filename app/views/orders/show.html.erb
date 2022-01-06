@@ -6,8 +6,37 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <strong>Here is your order summary:</strong>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+    <% line_items = LineItem.where(order_id: @order.id) %>
+    <% line_items.each do |line_item| %>
+    <%= render 'order', product_id: line_item.product_id, quantity: line_item.quantity %>
+    <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= number_to_currency @order.total %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 
+
+  
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
