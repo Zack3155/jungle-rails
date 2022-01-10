@@ -3,11 +3,11 @@ require "rails_helper"
 RSpec.describe Product, type: :model do
   test_category = Category.new(name: "Product test category")
   subject do
-      described_class.new(
-    name: "Object created for testing",
-    price_cents: 310,
-    quantity: 11,
-    category: test_category
+    described_class.new(
+      name: "Object created for testing",
+      price_cents: 310,
+      quantity: 11,
+      category: test_category
     )
   end
     

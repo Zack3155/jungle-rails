@@ -12,12 +12,9 @@ class User < ActiveRecord::Base
     if (email)
       user = User.find_by_email(email.strip.downcase)
       if user && user.authenticate(password)
-        user
-      else
-        nil
+        return user
       end
-    else
-      nil
     end
+    nil
   end
 end
